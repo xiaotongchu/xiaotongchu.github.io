@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- ...existing code (same head styles as index.html) ... -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Xiaotong Chu — Teaching</title>
+  <meta name="description" content="Teaching and supervision." />
+  <link rel="stylesheet" href="styles.css" />
+  <!-- small page-specific styles moved to styles.css -->
+</head>
+<body>
+  <header>
+    <div class="container header-inner">
+      <div class="site-title"><a href="index.html">Xiaotong Chu</a></div>
+
+      <button class="menu-toggle" aria-controls="primary-nav" aria-expanded="false" aria-label="Toggle menu">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+
+      <nav id="primary-nav" aria-label="Primary">
+        <ul>
+          <li><a href="index.html">About</a></li>
+          <li><a href="publications.html">Publications</a></li>
+          <li><a href="conferences.html">Conferences</a></li>
+          <li><a href="teaching.html" aria-current="page">Teaching</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>Teaching</h1>
+
+    <section aria-labelledby="teaching-2025">
+      <h2 id="teaching-2025">2025</h2>
+      <div class="teaching-item"><strong>Practical Training Psychological Research</strong> — University of Amsterdam <span class="muted">[Bachelor]</span></div>
+      <p>I guided students through weekly writing assignments and tutorial discussions, focusing on writing research papers, developing scientific writing skills, critical thinking, and creating convincing arguments. Students worked on predetermined topics, adjusted their research questions, and engaged in literature review and hypothesis development. Additionally, they wrote method sections, analyzed simulated datasets, reported results, and critically reflected on their findings. </p>
+      <div class="teaching-item"><strong>Psychobiology Bachelor Project</strong> — University of Amsterdam <span class="muted">[Bachelor]</span></div>
+      <p>I served as the second examiner for grading Bachelor theses in the Psychology department at the University of Amsterdam. In this role, I was responsible for evaluating the academic rigor and quality of students' research and collaborating with primary examiners to discuss and finalize grades. </p>
+    </section>
+
+    <section aria-labelledby="teaching-2023">
+      <h2 id="teaching-2023">2023</h2>
+      <div class="teaching-item"><strong>Persuasion in Consumer Communication for Sustainability</strong> — Wageningen University & Research <span class="muted">[Bachelor]</span></div>
+      <p>In this course, students collaborated with sustainability marketing practitioners from NGOs and government organizations. They selected a specific case they were interested in, wrote group reports, and presented their ideas to case owners, focusing on improving marketing practices for sustainable living. As the tutor, I provided feedback and guided students in refining their strategies.</p>
+    </section>
+
+    <section aria-labelledby="teaching-2022">
+      <h2 id="teaching-2022">2022</h2>
+      <div class="teaching-item"><strong>Introduction to Strategic Communication</strong> — Wageningen University & Research <span class="muted">[Bachelor]</span></div>
+      <p>I delivered tutorial lectures on strategic communication principles and theories, supervised group essay writing to guide students in analyzing communication phenomena, and facilitated tutorials and discussions to ensure active student engagement and understanding. I managed course materials, assignments, and assessments, and coordinated additional activities to enhance students' research and information skills. </p>
+      <div class="teaching-item"><strong>Research Practice Seminar</strong> — University of Amsterdam <span class="muted">[Pre-master]</span></div>
+      <p>I guided students through the process of conducting an academic-level research project in Communication Science. Under my supervision, students engage in the development of the research design, operationalize concepts, collect and analyze data, and report their methods and results in research papers. This seminar provides students with hands-on experience and prepares them for advanced studies in Communication Science. </p>
+    </section>
+
+
+
+
+
+  </main>
+
+  <footer>
+    <div class="container">© <span id="year"></span> Xiaotong Chu</div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    (function(){
+      const btn = document.querySelector('.menu-toggle');
+      const nav = document.querySelector('nav[aria-label="Primary"]');
+      if(!btn||!nav) return;
+      btn.addEventListener('click', ()=>{ const isOpen = nav.classList.toggle('open'); btn.setAttribute('aria-expanded', String(isOpen)); });
+      nav.addEventListener('click',(e)=>{ if(e.target.tagName.toLowerCase()==='a'){ nav.classList.remove('open'); btn.setAttribute('aria-expanded','false'); }});
+      window.addEventListener('resize', ()=>{ if(window.innerWidth>768){ nav.classList.remove('open'); btn.setAttribute('aria-expanded','false'); nav.style.display=''; }});
+    })();
+  </script>
+</body>
+</html>

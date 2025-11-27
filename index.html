@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Xiaotong Chu — About</title>
+  <meta name="description" content="About, publications, conferences, teaching, and contact for Xiaotong Chu." />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* About layout */
+    .about-hero {
+      display: grid;
+      grid-template-columns: 1.2fr auto;
+      gap: 32px;
+      align-items: start;
+    }
+    .about-hero .summary { font-size: 18px; }
+    .headshot {
+      width: 100%;
+      max-width: 420px;
+      height: auto;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      object-fit: cover;
+      justify-self: end;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .about-hero { 
+        grid-template-columns: 1fr; 
+      }
+      .headshot { justify-self: start; max-width: 280px; }
+    }
+  </style>
+</head>
+<body class="home">
+  <header>
+    <div class="container header-inner">
+      <div class="site-title"><a href="index.html">Xiaotong Chu</a></div>
+
+      <!-- added hamburger button (mobile only) -->
+      <button class="menu-toggle" aria-controls="primary-nav" aria-expanded="false" aria-label="Toggle menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+
+      <!-- nav gets an id so it can be controlled -->
+      <nav id="primary-nav" aria-label="Primary">
+        <ul>
+          <li><a href="index.html" aria-current="page">About</a></li>
+          <li><a href="publications.html">Publications</a></li>
+          <li><a href="conferences.html">Conferences</a></li>
+          <li><a href="teaching.html">Teaching</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="content" class="container">
+    <section aria-labelledby="about-title">
+      <div class="about-hero">
+        <div>
+          <h1 id="about-title">About me</h1>
+          <p class="muted">Postdoctoral Researcher • University of Amsterdam</p>
+          <p class="summary">I am a postdoctoral researcher at the Developmental Psychology Department at the University of Amsterdam. My research focuses on the persuasive impact of social media advertising on individual-level cognitive, affective, and behavioral responses. I have experience in quantitative and qualitative research methods such as (automatic) content analysis, (longitudinal) experiments, panel surveys, and experience sampling methods.</p>
+        </div>
+        <aside>
+          <img class="headshot" src="xiaotongchu_photo.jpg" alt="Portrait of Xiaotong Chu" />
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © <span id="year"></span> Xiaotong Chu
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile menu toggle
+    (function(){
+      const btn = document.querySelector('.menu-toggle');
+      const nav = document.querySelector('nav[aria-label="Primary"]');
+      if (!btn || !nav) return;
+
+      btn.addEventListener('click', () => {
+        const isOpen = nav.classList.toggle('open');
+        btn.setAttribute('aria-expanded', String(isOpen));
+      });
+
+      // Close menu when clicking a link (mobile)
+      nav.addEventListener('click', (e) => {
+        if (e.target.tagName.toLowerCase() === 'a') {
+          nav.classList.remove('open');
+          btn.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      // Ensure menu is visible if viewport resizes to desktop
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) {
+          nav.classList.remove('open');
+          btn.setAttribute('aria-expanded', 'false');
+          nav.style.display = ''; // let CSS handle desktop display
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

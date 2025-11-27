@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- ...existing code (same head styles as index.html) ... -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Xiaotong Chu — Conferences</title>
+  <meta name="description" content="Conferences and research visits." />
+  <link rel="stylesheet" href="styles.css" />
+  <!-- small page-specific styles moved to styles.css -->
+</head>
+<body>
+  <header>
+    <div class="container header-inner">
+      <div class="site-title"><a href="index.html">Xiaotong Chu</a></div>
+
+      <button class="menu-toggle" aria-controls="primary-nav" aria-expanded="false" aria-label="Toggle menu">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+
+      <nav id="primary-nav" aria-label="Primary">
+        <ul>
+          <li><a href="index.html">About</a></li>
+          <li><a href="publications.html">Publications</a></li>
+          <li><a href="conferences.html" aria-current="page">Conferences</a></li>
+          <li><a href="teaching.html">Teaching</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>Conferences & Research visits</h1>
+
+    <section aria-labelledby="conf-conferences">
+      <h2 id="conf-conferences">Conferences</h2>
+      <div class="conf-item"><strong>ICA 2025</strong> — Denver, USA. <span class="muted">[June 2025]</span></div>
+      <p>Over-time effects of political targeting versus mistargeting on ad perceptions: A longitudinal experiment. </p>
+
+      <div class="conf-item"><strong>NORFACE Governance Conference</strong> — Vienna, Austria. <span class="muted">[February 2024]</span></div>
+      <p>What you are beats what you believe: The effects of data-driven campaigning on polarization. </p>
+
+      <div class="conf-item"><strong>Etmaal 2023</strong> — Enschede, the Netherlands. <span class="muted">[Febrary 2023]</span></div>
+      <p>On or off topic? Understanding the effects of political targeted ads based on issues. </p>
+
+      <div class="conf-item"><strong>APSA 2022</strong> — Montreal, Canada. <span class="muted">[September 2022]</span></div>
+      <p>How are voters persuaded? The effects of online political ads on party preferences. </p>
+
+      <div class="conf-item"><strong>ICA 2022</strong> — Paris, France. <span class="muted">[May 2022]</span></div>
+      <p>The differential effects of data-driven campaigning: a literature review. </p>
+
+      <div class="conf-item"><strong>Etmaal 2022</strong> — Online. <span class="muted">[February 2022]</span></div>
+      <p>How are voters persuaded? The effects of online political ads on party preferences. </p>
+   </section>
+
+    <section aria-labelledby="conf-research-visits">
+      <h2 id="conf-research-visits">Research visits and schools</h2>
+      <div class="conf-item"><strong>GESIS</strong> — Computational Social Science Group <span class="muted">[Feb 2023]</span></div>
+      <div class="conf-item"><strong>University of Koblenz-Landau</strong> — Institute for Communication Psychology <span class="muted">[July 2022]</span></div>
+      <div class="conf-item"><strong>Milan International Summer School of Political Communication</strong> <span class="muted">[July 2022]</span></div>
+      <div class="conf-item"><strong>University of Vienna</strong> — Political Communication Research Group <span class="muted">[June 2022]</span></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© <span id="year"></span> Xiaotong Chu</div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    (function(){
+      const btn = document.querySelector('.menu-toggle');
+      const nav = document.querySelector('nav[aria-label="Primary"]');
+      if(!btn||!nav) return;
+      btn.addEventListener('click', ()=>{ const isOpen = nav.classList.toggle('open'); btn.setAttribute('aria-expanded', String(isOpen)); });
+      nav.addEventListener('click',(e)=>{ if(e.target.tagName.toLowerCase()==='a'){ nav.classList.remove('open'); btn.setAttribute('aria-expanded','false'); }});
+      window.addEventListener('resize', ()=>{ if(window.innerWidth>768){ nav.classList.remove('open'); btn.setAttribute('aria-expanded','false'); nav.style.display=''; }});
+    })();
+  </script>
+</body>
+</html>

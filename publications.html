@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- ...existing code (same head styles as index.html) ... -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Xiaotong Chu — Publications</title>
+  <meta name="description" content="Publications by Xiaotong Chu." />
+  <link rel="stylesheet" href="styles.css" />
+  <!-- small page-specific styles moved to styles.css -->
+</head>
+<body>
+  <header>
+    <div class="container header-inner">
+      <div class="site-title"><a href="index.html">Xiaotong Chu</a></div>
+
+      <button class="menu-toggle" aria-controls="primary-nav" aria-expanded="false" aria-label="Toggle menu">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+
+      <nav id="primary-nav" aria-label="Primary">
+        <ul>
+          <li><a href="index.html">About</a></li>
+          <li><a href="publications.html" aria-current="page">Publications</a></li>
+          <li><a href="conferences.html">Conferences</a></li>
+          <li><a href="teaching.html">Teaching</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>Publications</h1>
+    <!-- <p class="muted">Selected publications and manuscripts (placeholder).</p> -->
+
+    <section class="pub-list" aria-labelledby="pubs-2024">
+      <!-- <h2 id="pubs-2024" class="pub-year">2024</h2> -->  
+      <div class="pub-item"><strong>Chu, X.</strong>, Van Remoortere, A., Vermeer, S., Vliegenthart, R., &amp; Kruikemeier, S. (2025). The impact of happiness in political ads on party evaluation: A data donation study with emotion recognition. <em>Telematics and Informatics Reports</em>. doi: <a href="https://doi.org/10.1016/j.teler.2025.100196" target="_blank" rel="noopener">https://doi.org/10.1016/j.teler.2025.100196</a>.</div>
+      <div class="pub-item">Vliegenthart, R., Vrielink, J., Dommett, K., Gibson, R., Bon, E., <strong>Chu, X.</strong>, de Vreese, C., Lecheler, S., Matthes, J., Minihold, S., Otto, L., Stubenvoll, M., &amp; Kruikemeier, S. (2024). Citizens’ Acceptance of Data-Driven Political Campaigning: A 25-Country Cross-National Vignette Study. <em>Social Science Computer Review</em>. doi: <a href="https://doi.org/10.1177/08944393241249708" target="_blank" rel="noopener">https://doi.org/10.1177/08944393241249708</a>.</div>
+      <div class="pub-item"><strong>Chu, X.</strong>, Vliegenthart, R., Otto, L., Lecheler, S., de Vreese, C., &amp; Kruikemeier, S. (2023). Do online ads sway voters? Understanding the persuasiveness of online political ads. <em>Political Communication</em>, 1–25. doi: <a href="https://doi.org/10.1080/10584609.2023.2276104" target="_blank" rel="noopener">https://doi.org/10.1080/10584609.2023.2276104</a>.</div>
+      <div class="pub-item"><strong>Chu, X.</strong>, Otto, L., Vliegenthart, R., Lecheler, S., de Vreese, C., &amp; Kruikemeier, S. (2023). On or off topic? Understanding the effects of issue-related political targeted ads. <em>Information, Communication and Society</em>, 1–27. doi: <a href="https://doi.org/10.1080/1369118X.2023.2265978" target="_blank" rel="noopener">https://doi.org/10.1080/1369118X.2023.2265978</a>.</div>
+      <div class="pub-item">Beraldo, D., Milan, S., Agosti, C., Sotic, B. N., Vliegenthart, R., Kruikemeier, S., Otto, L., Vermeer, S. A., <strong>Chu, X.</strong>, &amp; Votta, F. (2021). Political advertising exposed: Tracking Facebook ads in the 2021 Dutch elections. <em>Internet Policy Review</em>. URL: <a href="https://policyreview.info/articles/news/political-advertising-exposed-tracking-facebook-ads-2021-dutch-elections/1543" target="_blank" rel="noopener">https://policyreview.info/articles/news/political-advertising-exposed-tracking-facebook-ads-2021-dutch-elections/1543</a>.</div>
+      <div class="pub-item">Boukes, M., <strong>Chu, X.</strong>, Fatah Elrahman Abdulqadir, N. M. I. A., Liu, R., Araujo, T. B., &amp; Kroon, A. C. (2021). Comparing user-content interactivity and audience diversity across news and satire: Differences in online engagement between satire, regular news and partisan news. <em>Journal of Information Technology &amp; Politics</em>, 19(1), 98–117. doi: <a href="https://doi.org/10.1080/19331681.2021.1927928" target="_blank" rel="noopener">https://doi.org/10.1080/19331681.2021.1927928</a>.</div>
+    </section>
+
+    <!-- <section class="pub-list" aria-labelledby="pubs-2023">
+      <h2 id="pubs-2023" class="pub-year">2023</h2>
+      <div class="pub-item">Chu, X. (2023). Example publication title. Journal Name. <span class="muted">[placeholder]</span></div>
+    </section> -->
+
+  </main>
+
+  <footer>
+    <div class="container">© <span id="year"></span> Xiaotong Chu</div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    (function(){
+      const btn = document.querySelector('.menu-toggle');
+      const nav = document.querySelector('nav[aria-label="Primary"]');
+      if (!btn || !nav) return;
+      btn.addEventListener('click', () => {
+        const isOpen = nav.classList.toggle('open');
+        btn.setAttribute('aria-expanded', String(isOpen));
+      });
+      nav.addEventListener('click', (e) => {
+        if (e.target.tagName.toLowerCase() === 'a') { nav.classList.remove('open'); btn.setAttribute('aria-expanded','false'); }
+      });
+      window.addEventListener('resize', ()=>{ if(window.innerWidth>768){ nav.classList.remove('open'); btn.setAttribute('aria-expanded','false'); nav.style.display=''; } });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,262 @@
+@import url('https://fonts.cdnfonts.com/css/impact');
+@import url('https://fonts.cdnfonts.com/css/tex-gyre-pagella');
+
+:root {
+  --bg: #ffffff;
+  --text: #111111;
+  --muted: #555555;
+  --border: #eaeaea;
+  --accent: #0055cc;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; overflow-y: scroll; }
+
+body {
+  margin: 0;
+  font-size: 18px;
+  font-family: "TeX Gyre Pagella", "Palatino Linotype", Palatino, "Book Antiqua", "URW Palladio L", Georgia, serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.7;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:focus-visible {
+  outline: 2px solid #99c2ff;
+  outline-offset: 2px;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 24px;
+  width: 100%;
+}
+
+/* Header / Navigation */
+header {
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 88px;
+}
+
+.site-title {
+  font-size: 42px;
+  font-weight: 900;
+  letter-spacing: 0.8px;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", "Helvetica Neue Condensed Black", Arial, sans-serif;
+  display: inline-flex;
+  align-items: center; /* center text vertically inside header */
+  height: 100%;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 24px;
+  align-items: center; /* ensure nav items are vertically centered */
+}
+
+nav a {
+  display: block;
+  padding: 8px 0;
+  color: var(--text);
+  font-weight: 400; /* make header tabs non-bold */
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", "Helvetica Neue Condensed Black", Arial, sans-serif; /* match site title */
+}
+
+/* Larger tab font on desktop to match visual weight of the site title */
+@media (min-width: 769px) {
+  nav a {
+    font-size: 18px;
+  }
+}
+
+nav a:hover {
+  text-decoration: none;
+  color: var(--accent);
+}
+
+/* Hamburger button (hidden on desktop) */
+.menu-toggle {
+  display: none;
+  background: transparent;
+  border: 0;
+  padding: 8px;
+  padding-left: 24px;
+  cursor: pointer;
+}
+
+.menu-toggle .bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--text);
+  margin: 4px 0;
+  transition: transform .2s ease, opacity .2s ease;
+}
+
+/* Sections */
+main {
+  flex: 1;
+  /* increased top padding to account for larger header height */
+  padding: 104px 0 40px;
+}
+
+/* Ensure consistent space between the sticky header and page content
+   by adding a top margin to the first child inside main. Pages that
+   previously relied on page-specific top margins (like the about hero)
+   will now inherit this spacing so all pages match the index. */
+main > *:first-child {
+  margin-top: 48px;
+}
+
+/* Headings: increase bottom spacing so sections feel less cramped */
+h1 {
+  margin: 0 0 24px;
+  line-height: 1.25;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", "Helvetica Neue Condensed Black", Arial, sans-serif;
+  font-size: 32px;
+}
+
+h2 {
+  margin: 0 0 18px;
+  line-height: 1.25;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", "Helvetica Neue Condensed Black", Arial, sans-serif;
+  font-size: 22px;
+}
+
+p {
+  margin: 0 0 16px;
+  color: var(--text);
+}
+
+.muted {
+  color: var(--muted);
+}
+
+/* Footer */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 24px 0;
+  color: var(--muted);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header-inner {
+    height: auto;
+    padding: 12px 0;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: flex-start;
+  }
+
+  /* Mobile body font-size to improve readability on small screens */
+  body { font-size: 16px; }
+
+  .site-title {
+    width: 100%;
+  }
+
+  nav {
+    width: 100%;
+  }
+
+  .menu-toggle {
+    display: block;
+    order: 1;
+    margin-left: 0;
+    align-self: center;
+  }
+
+  nav ul {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  nav[aria-label="Primary"] {
+    display: none;
+    order: 2;
+    width: 100%;
+  }
+
+  nav[aria-label="Primary"].open {
+    display: block;
+    background: var(--bg);
+    padding-top: 8px;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  nav[aria-label="Primary"] ul {
+    margin: 0;
+    padding: 0;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  nav[aria-label="Primary"] li {
+    list-style: none;
+  }
+
+  nav[aria-label="Primary"] a {
+    padding: 8px 0;
+    display: block;
+  }
+
+  /* Adjust the top spacing on small screens to match index.html's
+     responsive spacing for the first content block. */
+  main > *:first-child {
+    margin-top: 32px;
+  }
+}
+
+/* Responsive adjustment for site title on small screens */
+@media (max-width: 768px) {
+  .site-title {
+    font-size: 24px;
+    font-weight: 800;
+  }
+}
+
+/* ensure mobile tab size is readable but smaller than desktop title */
+@media (max-width: 768px) {
+  nav a { font-size: 15px; }
+}
+
+/* Page-specific small rules moved from individual HTML files
+   so styles stay centralized and consistent. */
+.pub-list { margin-top: 24px; }
+.pub-year { margin-top: 28px; }
+.pub-item { margin: 8px 0; }
+.conf-item { margin: 10px 0 0px; }
+.teaching-item { margin: 12px 0 0px; }
+.contact-list { margin-top: 16px; }
+.icon { width: 20px; height: 20px; display: inline-block; vertical-align: middle; fill: currentColor; }
