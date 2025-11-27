@@ -180,7 +180,9 @@ footer {
   body { font-size: 16px; }
 
   .site-title {
-    width: 100%;
+    width: auto;
+    order: 1;
+    padding-left: 24px; /* align title with .container content padding on mobile */
   }
 
   nav {
@@ -189,8 +191,8 @@ footer {
 
   .menu-toggle {
     display: block;
-    order: 1;
-    margin-left: 0;
+    order: 2;
+    margin-left: auto; /* push hamburger to the right */
     align-self: center;
   }
 
