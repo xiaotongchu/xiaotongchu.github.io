@@ -30,7 +30,10 @@
       .about-hero { 
         grid-template-columns: 1fr; 
       }
-      .headshot { justify-self: start; max-width: 280px; }
+      /* Make the aside a flex container and center its contents so
+         the headshot is centered on narrow viewports. */
+      .about-hero aside { display: flex; justify-content: center; }
+      .headshot { max-width: 280px; margin: 0; }
     }
   </style>
 </head>
