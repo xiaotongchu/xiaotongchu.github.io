@@ -14,7 +14,6 @@
       gap: 32px;
       align-items: start;
     }
-    .about-hero .summary { font-size: 18px; }
     .headshot {
       width: 100%;
       max-width: 420px;
@@ -34,6 +33,11 @@
          the headshot is centered on narrow viewports. */
       .about-hero aside { display: flex; justify-content: center; }
       .headshot { max-width: 280px; margin: 0; }
+    }
+
+    /* Desktop-only: keep the summary text slightly larger on wider viewports */
+    @media (min-width: 769px) {
+      .about-hero .summary { font-size: 18px; }
     }
   </style>
 </head>

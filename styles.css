@@ -107,7 +107,8 @@ nav a:hover {
   background: transparent;
   border: 0;
   padding: 8px;
-  padding-left: 24px;
+  padding-left: 0; /* remove extra left inset so button aligns with container */
+  padding-right: 0; /* ensure right edge sits at container's inner edge */
   cursor: pointer;
 }
 
@@ -174,6 +175,7 @@ footer {
     flex-wrap: wrap;
     gap: 8px;
     justify-content: flex-start;
+    position: relative; /* allow absolute positioning of the hamburger */
   }
 
   /* Mobile body font-size to improve readability on small screens */
@@ -192,8 +194,13 @@ footer {
   .menu-toggle {
     display: block;
     order: 2;
-    margin-left: auto; /* push hamburger to the right */
+    margin-left: 0;
     align-self: center;
+    position: absolute; /* position within header-inner */
+    right: 24px; /* align right edge with container inner padding */
+    top: 12px; /* pin near the top so opening the nav doesn't move it */
+    transform: none;
+    z-index: 20;
   }
 
   nav ul {
@@ -201,6 +208,10 @@ footer {
     flex-wrap: wrap;
     gap: 16px;
   }
+
+  /* Swap heading sizes on mobile: make site title larger and headings smaller */
+  h1 { font-size: 24px; }
+  h2 { font-size: 18px; }
 
   nav[aria-label="Primary"] {
     display: none;
@@ -243,7 +254,7 @@ footer {
 /* Responsive adjustment for site title on small screens */
 @media (max-width: 768px) {
   .site-title {
-    font-size: 24px;
+    font-size: 32px;
     font-weight: 800;
   }
 }
