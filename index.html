@@ -8,30 +8,48 @@
   <link rel="stylesheet" href="styles.css" />
   <style>
     /* About layout */
-    .about-hero {
-      display: grid;
-      grid-template-columns: 1.2fr auto;
-      gap: 32px;
-      align-items: start;
+    .about-hero .body-text {
+      display: flex;
+      flex-wrap: wrap-reverse;
     }
+    .about-hero .text {
+      flex: 1;
+    }
+    .about-hero aside {
+      display: flex;
+      flex: 1;
+      padding-left: 48px;
+      padding-bottom: 32px;
+      max-width: 450px;
+      align-items: flex-start;
+    }
+
     .headshot {
       width: 100%;
-      max-width: 420px;
+      max-width: 450px;
       height: auto;
       border-radius: 8px;
       border: 1px solid var(--border);
       object-fit: cover;
-      justify-self: end;
     }
+
+    .summary {
+      text-align: justify;
+    }
+    
 
     /* Responsive */
     @media (max-width: 768px) {
-      .about-hero { 
-        grid-template-columns: 1fr; 
+      .about-hero aside {
+        justify-content: center;
+        align-items: center;
+        padding-left: 0;
+        padding-bottom: 32px;
+        width: 100%;
+        min-width: 100%;
+        margin: 0 auto;
+        max-width: none;
       }
-      /* Make the aside a flex container and center its contents so
-         the headshot is centered on narrow viewports. */
-      .about-hero aside { display: flex; justify-content: center; }
       .headshot { max-width: 280px; }
     }
 
@@ -71,13 +89,21 @@
     <section aria-labelledby="about-title">
       <div class="about-hero">
         <div>
+          
           <h1 id="about-title">About me</h1>
           <p class="muted">Postdoctoral Researcher • University of Amsterdam</p>
-          <p class="summary">I am a postdoctoral researcher at the Developmental Psychology Department at the University of Amsterdam. My research focuses on the persuasive impact of social media advertising on individual-level cognitive, affective, and behavioral responses. I have experience in quantitative and qualitative research methods such as (automatic) content analysis, (longitudinal) experiments, panel surveys, and experience sampling methods.</p>
+          <div class="body-text">
+
+            <div class="text">
+              <p class="summary">I am a postdoctoral researcher at the Developmental Psychology Department at the University of Amsterdam. My research focuses on the persuasive impact of social media advertising on individual-level cognitive, affective, and behavioral responses.</p>
+              <p class="summary">I study these effects using methods that assess social media exposure in real-life settings, such as web scraping, browser tracking, ad transparency tools, experience sampling, and data donation. These approaches allow the examination of most major social media platforms, including Facebook, Instagram, YouTube, and TikTok. As visual content has become crucial in today’s social media landscape, my research pays particular attention to identifying and analyzing advertising content, with a specific focus on visual material. This includes topic classification of political issues, image classification such as facial emotion recognition, and video classification such as alcohol-related content detection, as well as engagement with the broader question of how advertising should be defined in today’s digital media environment. Further, I combine computational methods with traditional approaches such as panel surveys and experiments, which enables me to study how social media exposure shapes users’ behaviors.</p>
+              <!-- <p class="summary">Building on this foundation, my future research will further develop a few lines of inquiry. I aim to develop a tool for also complies with GDPR regulations. constructing conceptual frameworks and models.</p> -->
+            </div>
+            <aside>
+              <img class="headshot" src="profile_photo.jpg" alt="Portrait of Xiaotong Chu">
+            </aside>
+          </div>
         </div>
-        <aside>
-          <img class="headshot" src="profile_photo.jpg" alt="Portrait of Xiaotong Chu" />
-        </aside>
       </div>
     </section>
   </main>

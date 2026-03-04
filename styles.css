@@ -154,8 +154,8 @@ h2 {
 p {
   margin: 0 0 16px;
   color: var(--text);
+  text-align: justify;
 }
-
 .muted {
   color: var(--muted);
 }
@@ -274,3 +274,24 @@ footer {
 .teaching-item { margin: 12px 0 0px; }
 .contact-list { margin-top: 16px; }
 .icon { width: 20px; height: 20px; display: inline-block; vertical-align: middle; fill: currentColor; }
+
+/* Photo gallery used by /defensephotos */
+.gallery {
+  /* Grid-based masonry: preserve DOM order (left-to-right) while
+     allowing items to span rows to create a masonry effect. */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+  grid-auto-rows: 8px; /* small row height used to compute spans */
+  margin-top: 24px;
+}
+.gallery a { display: block; }
+.gallery-item { display: block; }
+.gallery img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+}
+.gallery-caption { font-size: 14px; color: var(--muted); margin-top: 6px; }
